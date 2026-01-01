@@ -86,6 +86,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const loggedInUserEmail = sessionStorage.getItem('loggedInUserEmail');
             if (loggedInUserEmail) {
                 bookingDetails.ownerEmail = loggedInUserEmail;
+            } else {
+                // If no user is logged in, assign a default or handle as an error
+                console.warn('No logged-in user email found. Ticket will be saved without an ownerEmail or with a default.');
+                bookingDetails.ownerEmail = 'guest@example.com'; // Or handle as an error
             }
 
             // Save the finalized ticket to a more persistent storage
