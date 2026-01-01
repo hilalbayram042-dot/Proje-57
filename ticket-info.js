@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p><strong>Yolcular:</strong> ${passengerNames}</p>
                 <p><strong>Koltuk No:</strong> ${ticket.selectedSeats.join(', ')}</p>
                 <p><strong>PNR:</strong> ${ticket.pnr}</p>
-                <p><strong>İletişim E-postası:</strong> ${ticket.purchaserEmail || 'N/A'}</p>
+                <p><strong>İletişim E-postası:</strong> ${ticket.ownerEmail || 'N/A'}</p>
             `;
             ticketList.appendChild(ticketItem);
         });

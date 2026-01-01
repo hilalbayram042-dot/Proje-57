@@ -280,7 +280,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="card-section">
                             <strong>Uçuş Bilgileri</strong>
                             <p>${ticket.departureCity || 'N/A'} -> ${ticket.arrivalCity || 'N/A'}</p>
-                            <p>Tarih: ${ticket.departureDate} | Saat: ${ticket.departureTime}</p>
+                            <p>Tarih: ${ticket.departureDate} | Kalkış: ${ticket.departureTime} | Varış: ${ticket.arrivalTime}</p>
+                            ${ticket.isRoundTrip ? `<p>Dönüş Tarihi: ${ticket.returnDate}</p>` : ''}
                             <p>Koltuklar: ${ticket.selectedSeats.join(', ')}</p>
                         </div>
                         <div class="card-section">
@@ -289,7 +290,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         </div>
                         <div class="card-section">
                             <strong>İletişim</strong>
-                            <p>${ticket.purchaserEmail || 'N/A'}</p>
+                            <p>${ticket.ownerEmail || 'N/A'}</p>
                         </div>
                     </div>
                 `;
@@ -347,6 +348,23 @@ document.addEventListener('DOMContentLoaded', () => {
             sessionStorage.setItem('loggedInUserEmail', user.email);
             sessionStorage.setItem('userRole', user.role || 'user'); // Store user role
             alert('Giriş başarılı!');
+
+            // Associate any guest tickets with the logged-in user
+            let purchasedTickets = JSON.parse(localStorage.getItem('purchasedTickets')) || [];
+            let updatedTickets = false;
+            purchasedTickets = purchasedTickets.map(ticket => {
+                if (ticket.ownerEmail === 'guest@example.com') {
+                    ticket.ownerEmail = user.email;
+                    updatedTickets = true;
+                }
+                return ticket;
+            });
+
+            if (updatedTickets) {
+                localStorage.setItem('purchasedTickets', JSON.stringify(purchasedTickets));
+                console.log(`Guest tickets associated with ${user.email}`);
+            }
+
             renderPage();
         } else {
             alert('Geçersiz e-posta veya şifre.');
