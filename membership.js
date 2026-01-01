@@ -432,4 +432,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initial render when page loads
     renderPage();
+
+    // --- Storage Event Listener for real-time updates ---
+    window.addEventListener('storage', (event) => {
+        // Check if the change is relevant to purchased tickets
+        if (event.key === 'purchasedTickets') {
+            console.log('localStorage.purchasedTickets changed. Re-rendering reservations.');
+            renderPage(); // Re-render the entire page to reflect changes
+        }
+    });
 });
