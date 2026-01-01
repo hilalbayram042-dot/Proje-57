@@ -33,6 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
             <p><strong>Nereden:</strong> ${bookingDetails.from}</p>
             <p><strong>Nereye:</strong> ${bookingDetails.to}</p>
             <p><strong>Gidiş Tarihi:</strong> ${bookingDetails.departureDate}</p>
+            <p><strong>Kalkış Saati:</strong> ${bookingDetails.departureTime}</p>
+            <p><strong>Varış Saati:</strong> ${bookingDetails.arrivalTime}</p>
             ${bookingDetails.isRoundTrip ? `<p><strong>Dönüş Tarihi:</strong> ${bookingDetails.returnDate}</p>` : ''}
             <p><strong>Yolcular:</strong> ${passengerNames}</p>
         </div>
@@ -65,6 +67,8 @@ document.addEventListener('DOMContentLoaded', () => {
             <p><strong>Nereden:</strong> ${bookingDetails.from}</p>
             <p><strong>Nereye:</strong> ${bookingDetails.to}</p>
             <p><strong>Gidiş Tarihi:</strong> ${bookingDetails.departureDate}</p>
+            <p><strong>Kalkış Saati:</strong> ${bookingDetails.departureTime}</p>
+            <p><strong>Varış Saati:</strong> ${bookingDetails.arrivalTime}</p>
             ${bookingDetails.isRoundTrip ? `<p><strong>Dönüş Tarihi:</strong> ${bookingDetails.returnDate}</p>` : ''}
             <p><strong>Yolcular:</strong> ${passengerNames}</p>
         </div>

@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             <div class="summary-item">
                 <strong>Saat:</strong>
-                <span>${bookingDetails.departureTime}</span>
+                <span>${bookingDetails.departureTime} - ${bookingDetails.arrivalTime}</span>
             </div>
              <div class="summary-item">
                 <strong>Koltuk:</strong>
