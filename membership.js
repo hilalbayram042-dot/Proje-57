@@ -26,8 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     seatClass: 'Ekonomi',
                     selectedSeats: ['15A'],
                     finalPrice: 850.00,
-                    purchaserEmail: 'meltemkoran049@gmail.com',
-                    associatedUserEmail: 'meltemkoran049@gmail.com',
+                    ownerEmail: 'meltemkoran049@gmail.com',
                     passengers: [
                         { name: 'Meltem', surname: 'Koran', tc: '11111111111', isChild: false }
                     ]
@@ -44,8 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     seatClass: 'Business',
                     selectedSeats: ['2B'],
                     finalPrice: 1800.00,
-                    purchaserEmail: 'meltemkoran049@gmail.com',
-                    associatedUserEmail: 'meltemkoran049@gmail.com',
+                    ownerEmail: 'meltemkoran049@gmail.com',
                     passengers: [
                         { name: 'Meltem', surname: 'Koran', tc: '11111111111', isChild: false }
                     ]
@@ -161,9 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Filter tickets for the logged-in user
-        const userTickets = allTickets.filter(ticket => {
-            return ticket.purchaserEmail === loggedInUserEmail || (ticket.associatedUserEmail && ticket.associatedUserEmail === loggedInUserEmail);
-        });
+        const userTickets = allTickets.filter(ticket => ticket.ownerEmail === loggedInUserEmail);
 
         if (userTickets.length > 0) {
             ticketListDiv.innerHTML = ''; // Clear "No tickets found" message

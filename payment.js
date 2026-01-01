@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Associate the ticket with the logged-in user
             const loggedInUserEmail = sessionStorage.getItem('loggedInUserEmail');
             if (loggedInUserEmail) {
-                bookingDetails.purchaserEmail = loggedInUserEmail;
+                bookingDetails.ownerEmail = loggedInUserEmail;
             }
 
             // Save the finalized ticket to a more persistent storage
