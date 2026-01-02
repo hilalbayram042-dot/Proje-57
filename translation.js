@@ -1,35 +1,6 @@
 // Centralized translation logic
 document.addEventListener('DOMContentLoaded', () => {
-    const languageBtn = document.querySelector('.language-btn');
-    const languageDropdown = document.querySelector('.language-dropdown');
 
-    // 1. Dropdown Toggle Logic
-    if (languageBtn && languageDropdown) {
-        languageBtn.addEventListener('click', (event) => {
-            event.stopPropagation();
-            languageDropdown.classList.toggle('show');
-        });
-
-        languageDropdown.addEventListener('click', (e) => {
-            e.preventDefault(); // Prevent page reload
-            if (e.target.tagName === 'A') {
-                const lang = e.target.getAttribute('data-lang');
-                if (lang) {
-                    setLanguage(lang);
-                    languageDropdown.classList.remove('show');
-                }
-            }
-        });
-    }
-
-    // Close the dropdown if clicking outside
-    window.addEventListener('click', (event) => {
-        if (languageDropdown && languageBtn && !languageDropdown.contains(event.target) && !languageBtn.contains(event.target)) {
-            if (languageDropdown.classList.contains('show')) {
-                languageDropdown.classList.remove('show');
-            }
-        }
-    });
 
     // 2. Translation Functions
     async function loadAndTranslate(lang) {
